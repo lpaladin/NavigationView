@@ -1,0 +1,49 @@
+﻿<Publish>
+  <!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
+  <ModId Value="93523" />
+  <!--Name of the mod to display to players-->
+  <DisplayName Value="NavigationView" />
+  <!--Short description of the mod-->
+  <ShortDescription Value="Check how your citizen navigates in your city" />
+  <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
+  <!--LongDescription Value="Select a citizen to list routes, stops, means of transport and distance in a side view" /-->
+  <LongDescription>
+## Navigation View
+Click the top-left button to enable.
+
+Select a citizen / car to list routes, stops, means of transport and distance in a side view.
+
+Recommended to use with the [Cim Route Highlighter](https://mods.paradoxplaza.com/mods/76662/Windows) mod by mattswarthout.
+
+Features:
+* List roads, paths, public transport routes and stops for your selected citizen, resembling the navigation apps in your phone
+* Grouped by means of transport
+* Configure the refresh frequency
+
+TODO:
+* Better grouping of road segments while driving
+* Redundant info for some stops
+* Jump to detail view when clicking on items
+  </LongDescription>
+  <!--Thumbnail-->
+  <Thumbnail Value="Properties/Thumbnail.png" />
+  <!--Screenshot, can be set multiple times-->
+  <Screenshot Value="Properties/Screenshot.png" />
+  <!--Tag, can be set multiple times-->
+  <Tag Value="" />
+  <!--Link to the forum post where the mod can be discussed-->
+  <ForumLink Value="" />
+  <!--Version of the mod-->
+  <ModVersion Value="1.0.1" />
+  <!--Recommended version of the base game to use the mod-->
+  <GameVersion Value="1.1.*" />
+  <!--Dependency for the mod, can be set multiple times-->
+  <Dependency Id="" />
+  <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
+  <ChangeLog>
+## 1.0
+* Initial release
+  </ChangeLog>
+  <!--External link. supported types are discord, github, youtube, twitch, x, paypal, patreon, buymeacoffee, kofi, crowdin, gitlab-->
+  <ExternalLink Type="github" Url="https://github.com/lpaladin/NavigationView" />
+</Publish>

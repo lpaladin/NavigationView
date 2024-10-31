@@ -1,0 +1,116 @@
+.panel {
+    max-height: 50vh;
+}
+
+.entry {
+    padding: 0.5em 1em 0.5em 0;
+    border-top: 2rem solid #d8d8d838;
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+
+    &:first-child {
+        border-top-width: 0;
+    }
+}
+
+.routeHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.routeName {
+    padding: 0.15em 0.5em;
+    border-radius: 5rem;
+    align-self: flex-start;
+    display: flex;
+    margin: 0.2em 0.5em 0.2em 0;
+}
+
+.routeContainer {
+    width: 3em;
+    display: flex;
+    position: relative;
+    align-self: stretch;
+
+    .routeIcon,
+    .pathIndicator {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .line {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 0.5em;
+    }
+}
+
+.pathIndicator {
+    height: 0.4em;
+    width: 0.4em;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.routeDetails {
+    > .routeHeader .line {
+        top: 50%;
+    }
+    > :last-child .line {
+        bottom: 50%;
+    }
+    > .routeHeader .pathIndicator,
+    > :last-child .pathIndicator {
+        height: 1.2em;
+        width: 1.2em;
+        border: 2rem solid;
+    }
+}
+
+.path {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pathDetails {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0.2em 0;
+
+    .pathName {
+    }
+
+    .pathSubName {
+        border-left: 2rem solid gray;
+        margin-left: 0.5em;
+        padding-left: 0.5em;
+        color: rgb(190, 190, 190);
+    }
+
+    .pathDistance {
+        margin-left: 0.5em;
+        padding-left: 0.5em;
+        font-size: 0.8em;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.entry:first-child {
+    .routeHeader {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
+    }
+
+    .path:nth-child(2) {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
+    }
+}

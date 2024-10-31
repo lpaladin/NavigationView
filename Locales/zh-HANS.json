@@ -1,0 +1,10 @@
+{
+  "NavigationView.UI.Title": "导航视图",
+  "Options.SECTION[NavigationView.NavigationView.Mod]": "导航视图",
+  "Options.OPTION[NavigationView.NavigationView.Mod.Setting.RefreshFrequency]": "导航视图刷新频率",
+  "Options.OPTION_DESCRIPTION[NavigationView.NavigationView.Mod.Setting.RefreshFrequency]": "每秒钟导航视图会刷新多少次",
+  "Assets.NAME[Invisible Pathway]": "隐形路径",
+  "Assets.NAME[Pathway]": "路径",
+  "Assets.NAME[Train Track]": "列车轨道",
+  "Assets.NAME[Subway Track]": "地铁轨道"
+}

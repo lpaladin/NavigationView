@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 26.96 26.99" style="enable-background:new 0 0 26.96 26.99;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#B3B3B3;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;stroke:#CCCCCC;stroke-width:0.25;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<g id="图层_1">
+	<line class="st0" x1="12.98" y1="9.01" x2="23.73" y2="9.01"/>
+	<path class="st0" d="M12.98,9.01"/>
+	<path class="st0" d="M7.06,9.01"/>
+	<line class="st0" x1="5.05" y1="9.01" x2="7.06" y2="9.01"/>
+	<path class="st0" d="M10.02,11.95c0,2.03,0,4.07,0,6.1c0,4.05,0,0.68,0,4.74"/>
+	<path class="st0" d="M10.02,11.95"/>
+	<path class="st0" d="M10.02,9.01"/>
+	<path class="st0" d="M10.02,6.04"/>
+	<path class="st0" d="M10.02,3.97c0,1.08,0,1.64,0,2.07"/>
+	<line class="st0" x1="19.98" y1="18.02" x2="21.73" y2="18.02"/>
+	<path class="st0" d="M19.98,18.02"/>
+	<path class="st0" d="M14.07,18.02"/>
+	<line class="st0" x1="3.05" y1="18.02" x2="14.07" y2="18.02"/>
+	<line class="st0" x1="17.02" y1="20.98" x2="17.02" y2="22.79"/>
+	<path class="st0" d="M17.02,20.98"/>
+	<path class="st0" d="M17.02,15.06"/>
+	<line class="st0" x1="17.02" y1="3.97" x2="17.02" y2="15.06"/>
+	<path class="st0" d="M10.02,18.02"/>
+</g>
+<g id="图层_3">
+	<line class="st1" x1="12.98" y1="9.01" x2="23.73" y2="9.01"/>
+	<line class="st1" x1="10.02" y1="22.79" x2="10.02" y2="11.95"/>
+	<polyline class="st1" points="21.31,6.19 24.4,9.01 21.31,11.8 	"/>
+</g>
+<g id="图层_2">
+	<path class="st2" d="M10.02,18.05"/>
+	<circle class="st0" cx="17.02" cy="18.02" r="2.96"/>
+	<circle class="st3" cx="10.02" cy="9" r="2.96"/>
+</g>
+</svg>
