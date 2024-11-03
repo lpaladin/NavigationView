@@ -1,7 +1,7 @@
 import { useValue } from "cs2/api";
-import { Name } from "cs2/bindings";
+import { Entity, Name, selectedInfo } from "cs2/bindings";
 import { LocalizedEntityName, LocalizedNumber, Unit, useLocalization } from "cs2/l10n";
-import { Icon, Panel } from "cs2/ui";
+import { Icon, Panel, Tooltip } from "cs2/ui";
 import mod from "mod.json";
 import { navigationEntries$, navigationViewEnabled$, navigationViewToggle } from "mods/bindings";
 import { ReactNode, useCallback } from "react";
@@ -22,6 +22,13 @@ function isValidName(name: Name): boolean {
     return name.nameId?.length > 0;
 }
 
+const Selectable = ({ value: { nameEntity, name } }: { value: { nameEntity: Entity, name: Name } }) => {
+    const select = useCallback(() => selectedInfo.selectEntity(nameEntity), [nameEntity]);
+    return <div className={ styles.selectable } onClick={ select }>
+        <LocalizedEntityName value={ name } />
+    </div>;
+}
+
 const PathDetails = ({ path }: { path: NavigationEntryPath }) => {
     let distanceElement: ReactNode = null;
     if (path.remainingDistance > 1e-6) {
@@ -30,13 +37,15 @@ const PathDetails = ({ path }: { path: NavigationEntryPath }) => {
         </div>;
     }
     return <div className={ styles.pathDetails }>
-        <div className={ styles.pathName }><LocalizedEntityName value={ path.name } /></div>
+        <div className={ styles.pathName }><Selectable value={ path } /></div>
         { isValidName(path.subName) && <div className={ styles.pathSubName }><LocalizedEntityName value={ path.subName } /></div> }
         { distanceElement }
     </div>;
 };
 
 const NavigationViewEntry = ({ entry }: { entry: NavigationEntry }) => {
+    const { translate } = useLocalization();
+
     const pathIndices = [];
     let routeNameAddon: ReactNode = null;
     if (entry.paths[0].remainingDistance < 1e-6) {
@@ -45,7 +54,17 @@ const NavigationViewEntry = ({ entry }: { entry: NavigationEntry }) => {
                 pathIndices.push(i);
             }
         }
-        routeNameAddon = <PathDetails path={ entry.paths[0] } />;
+        routeNameAddon = <>
+            <PathDetails path={ entry.paths[0] } />
+            {
+                entry.waitingPassengers > 0 && <Tooltip tooltip={ translate(`${mod.id}.UI.WaitingPassengers`) }>
+                    <div className={ styles.waitingPassengers }>
+                        <Icon className={ styles.waitingPassengersIcon } src="Media/Game/Icons/Citizen.svg" />
+                        <div>{ entry.waitingPassengers }</div>
+                    </div>
+                </Tooltip>
+            }
+        </>;
     } else {
         for (let i = 0; i < entry.paths.length; i++) {
             pathIndices.push(i);
@@ -62,7 +81,7 @@ const NavigationViewEntry = ({ entry }: { entry: NavigationEntry }) => {
                     <Icon className={ styles.routeIcon } src={ entry.icon } />
                 </div>
                 <div className={ styles.routeName } style={ { backgroundColor: getDisplayColor(entry.color) } }>
-                    <LocalizedEntityName value={ entry.name } />
+                    <Selectable value={ entry } />
                 </div>
                 { routeNameAddon }
             </div>

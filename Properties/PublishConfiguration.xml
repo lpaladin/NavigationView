@@ -11,38 +11,39 @@
 ## Navigation View
 Click the top-left button to enable.
 
-Select a citizen / car to list routes, stops, means of transport and distance in a side view.
+Select a citizen / car to list routes, stops, means of transport and distance in a side view, resembling the navigation apps in their phone
 
 Recommended to use with the [Cim Route Highlighter](https://mods.paradoxplaza.com/mods/76662/Windows) mod by mattswarthout.
 
 Features:
-* List roads, paths, public transport routes and stops for your selected citizen, resembling the navigation apps in your phone
+* List roads, paths, public transport routes and stops for your selected citizen
 * Grouped by means of transport
 * Configure the refresh frequency
 
 TODO:
 * Better grouping of road segments while driving
 * Redundant info for some stops
-* Jump to detail view when clicking on items
   </LongDescription>
   <!--Thumbnail-->
   <Thumbnail Value="Properties/Thumbnail.png" />
   <!--Screenshot, can be set multiple times-->
+  <Screenshot Value="Properties/Screenshot2.png" />
   <Screenshot Value="Properties/Screenshot.png" />
   <!--Tag, can be set multiple times-->
   <Tag Value="" />
   <!--Link to the forum post where the mod can be discussed-->
   <ForumLink Value="https://forum.paradoxplaza.com/forum/threads/navigationview.1713216/" />
   <!--Version of the mod-->
-  <ModVersion Value="1.0.2" />
+  <ModVersion Value="1.0.3" />
   <!--Recommended version of the base game to use the mod-->
   <GameVersion Value="1.1.*" />
   <!--Dependency for the mod, can be set multiple times-->
   <Dependency Id="" />
   <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
   <ChangeLog>
-## 1.0.2
-* Add link to the forum post
+## 1.0.3
+* Added display for number of waiting passengers
+* Click on primary names (route name, station name, road name, ...) to select and view details
   </ChangeLog>
   <!--External link. supported types are discord, github, youtube, twitch, x, paypal, patreon, buymeacoffee, kofi, crowdin, gitlab-->
   <ExternalLink Type="github" Url="https://github.com/lpaladin/NavigationView" />

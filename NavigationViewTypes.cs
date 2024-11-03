@@ -18,6 +18,7 @@ namespace NavigationView
         public Color32 Color;
         public int PathBeginIndex;
         public int PathEndIndex;
+        public int WaitingPassengers;
     }
 
     public struct NativeNavigationEntryPath
@@ -44,9 +45,10 @@ namespace NavigationView
         public Entity NameEntity;
         public string Color;
         public Path[] Paths;
+        public int WaitingPassengers;
 
         public static NavigationEntry[] FromNative(
-            NativeList<NativeNavigationEntry> nativeNavigationEntries, NativeList<NativeNavigationEntryPath> nativeNavigationEntryPaths)
+            in NativeList<NativeNavigationEntry> nativeNavigationEntries, in NativeList<NativeNavigationEntryPath> nativeNavigationEntryPaths)
         {
             var entries = new NavigationEntry[nativeNavigationEntries.Length];
             for (int i = 0; i < nativeNavigationEntries.Length; i++)
@@ -58,6 +60,7 @@ namespace NavigationView
                     NameEntity = nativeEntry.NameEntity,
                     Color = ColorUtility.ToHtmlStringRGBA(nativeEntry.Color),
                     Paths = new Path[nativeEntry.PathEndIndex - nativeEntry.PathBeginIndex],
+                    WaitingPassengers = nativeEntry.WaitingPassengers,
                 };
                 // for each unique name entity, find their first and last index, and merge all paths in between, sum their distances and remaining distances
                 var primaryPathLastIndices = new Dictionary<Entity, int>();
@@ -123,6 +126,16 @@ namespace NavigationView
         public NameSystem nameSystem;
         public ImageSystem imageSystem;
 
+        private void BindEntity(IJsonWriter writer, in Entity entity)
+        {
+            writer.TypeBegin(nameof(Entity));
+            writer.PropertyName("index");
+            writer.Write(entity.Index);
+            writer.PropertyName("version");
+            writer.Write(entity.Version);
+            writer.TypeEnd();
+        }
+
         public void Write(IJsonWriter writer, NavigationEntry[] value)
         {
             if (value == null)
@@ -143,6 +156,9 @@ namespace NavigationView
                 writer.PropertyName("name");
                 nameSystem.BindName(writer, entry.NameEntity);
 
+                writer.PropertyName("nameEntity");
+                BindEntity(writer, entry.NameEntity);
+
                 writer.PropertyName("icon");
                 writer.Write(imageSystem.GetInstanceIcon(entry.NameEntity));
 
@@ -153,6 +169,9 @@ namespace NavigationView
                     writer.TypeBegin(nameof(NavigationEntry.Path));
                     writer.PropertyName("name");
                     nameSystem.BindName(writer, path.PathNameEntity);
+
+                    writer.PropertyName("nameEntity");
+                    BindEntity(writer, path.PathNameEntity);
 
                     writer.PropertyName("subName");
                     nameSystem.BindName(writer, path.PathSubNameEntity);
@@ -169,6 +188,9 @@ namespace NavigationView
                     writer.TypeEnd();
                 }
                 writer.ArrayEnd();
+
+                writer.PropertyName("waitingPassengers");
+                writer.Write(entry.WaitingPassengers);
 
                 writer.TypeEnd();
             }

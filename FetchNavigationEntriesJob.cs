@@ -60,6 +60,8 @@ namespace NavigationView
         [ReadOnly]
         public ComponentLookup<Game.Common.Target> targetLookup;
         [ReadOnly]
+        public ComponentLookup<WaitingPassengers> waitingPassengersLookup;
+        [ReadOnly]
         public ComponentLookup<Deleted> deletedLookup;
         [ReadOnly]
         public ComponentLookup<Game.Prefabs.PrefabRef> prefabRefLookup;
@@ -349,6 +351,11 @@ namespace NavigationView
                 {
                     var routeWaypoint = routeWaypoints[(i + 1) % routeWaypoints.Length];
                     var path = new NativeNavigationEntryPath();
+                    if (i == start.m_Index &&
+                        waitingPassengersLookup.TryGetComponent(routeWaypoint.m_Waypoint, out var waitingPassengers))
+                    {
+                        currentEntry.WaitingPassengers = waitingPassengers.m_Count;
+                    }
                     if (connectedLookup.TryGetComponent(routeWaypoint.m_Waypoint, out var connected))
                     {
                         if (ownerLookup.TryGetComponent(connected.m_Connected, out var ownerStation))

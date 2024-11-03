@@ -1,5 +1,6 @@
 {
   "NavigationView.UI.Title": "导航视图",
+  "NavigationView.UI.WaitingPassengers": "等待中的乘客",
   "Options.SECTION[NavigationView.NavigationView.Mod]": "导航视图",
   "Options.OPTION[NavigationView.NavigationView.Mod.Setting.RefreshFrequency]": "导航视图刷新频率",
   "Options.OPTION_DESCRIPTION[NavigationView.NavigationView.Mod.Setting.RefreshFrequency]": "每秒钟导航视图会刷新多少次",

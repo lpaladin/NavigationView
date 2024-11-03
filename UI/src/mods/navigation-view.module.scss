@@ -20,6 +20,19 @@
     align-items: center;
 }
 
+.waitingPassengers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 0.8em;
+    margin-left: 0.5em;
+    padding-left: 0.5em;
+
+    .waitingPassengersIcon {
+        transform: scale(0.8);
+    }
+}
+
 .routeName {
     padding: 0.15em 0.5em;
     border-radius: 5rem;
@@ -112,5 +125,11 @@
 
     .path:nth-child(2) {
         background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
+    }
+}
+
+.selectable {
+    &:hover {
+        color: rgba(75, 195, 241);
     }
 }

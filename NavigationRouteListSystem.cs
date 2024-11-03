@@ -122,6 +122,7 @@ namespace NavigationView
                 currentTransportLookup = GetComponentLookup<CurrentTransport>(true),
                 connectedLookup = GetComponentLookup<Connected>(true),
                 targetLookup = GetComponentLookup<Target>(true),
+                waitingPassengersLookup = GetComponentLookup<WaitingPassengers>(true),
                 deletedLookup = GetComponentLookup<Deleted>(true),
                 prefabRefLookup = GetComponentLookup<Game.Prefabs.PrefabRef>(true),
                 transportLineDataLookup = GetComponentLookup<Game.Prefabs.TransportLineData>(true),
