@@ -78,6 +78,11 @@ namespace NavigationView
                     }
                 }
 
+                if (entry.NameEntity == default)
+                {
+                    entry.NameEntity = nativeNavigationEntryPaths[nativeEntry.PathBeginIndex].NameEntity;
+                }
+
                 var paths = new List<Path>();
                 // 2: merge all paths in between any two primary paths
                 for (int j = nativeEntry.PathBeginIndex; j < nativeEntry.PathEndIndex; j++)

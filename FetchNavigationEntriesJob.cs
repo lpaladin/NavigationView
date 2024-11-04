@@ -62,6 +62,8 @@ namespace NavigationView
         [ReadOnly]
         public ComponentLookup<WaitingPassengers> waitingPassengersLookup;
         [ReadOnly]
+        public ComponentLookup<GroupMember> groupMemberLookup;
+        [ReadOnly]
         public ComponentLookup<Deleted> deletedLookup;
         [ReadOnly]
         public ComponentLookup<Game.Prefabs.PrefabRef> prefabRefLookup;
@@ -150,6 +152,10 @@ namespace NavigationView
 
         public void Execute()
         {
+            if (groupMemberLookup.TryGetComponent(citizen, out var groupMember))
+            {
+                citizen = groupMember.m_Leader;
+            }
             FetchEntries(citizen);
             if (resultEntries.IsEmpty && currentVehicleLookup.TryGetComponent(citizen, out var currentVehicle))
             {
