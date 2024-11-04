@@ -1,0 +1,11 @@
+{
+  "NavigationView.UI.Title": "Navigation View",
+  "NavigationView.UI.WaitingPassengers": "Passagers en attente",
+  "Options.SECTION[NavigationView.NavigationView.Mod]": "Vue de navigation",
+  "Options.OPTION[NavigationView.NavigationView.Mod.Setting.RefreshFrequency]": "Fréquence de rafraîchissement de la vue de navigation (Hz)",
+  "Options.OPTION_DESCRIPTION[NavigationView.NavigationView.Mod.Setting.RefreshFrequency]": "La fréquence de rafraîchissement (par seconde) de la vue de navigation.",
+  "Assets.NAME[Invisible Pathway]": "Chemin invisible",
+  "Assets.NAME[Pathway]": "Voie d'accès",
+  "Assets.NAME[Train Track]": "Voie ferrée",
+  "Assets.NAME[Subway Track]": "Voie de métro"
+}
