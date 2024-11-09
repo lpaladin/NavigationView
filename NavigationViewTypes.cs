@@ -18,7 +18,6 @@ namespace NavigationView
         public Color32 Color;
         public int PathBeginIndex;
         public int PathEndIndex;
-        public int WaitingPassengers;
     }
 
     public struct NativeNavigationEntryPath
@@ -28,6 +27,7 @@ namespace NavigationView
         public bool IsPrimary;
         public float Distance;
         public float RemainingDistance;
+        public int WaitingPassengers;
     }
 
     public struct NavigationEntry
@@ -39,13 +39,13 @@ namespace NavigationView
             public bool IsPrimary;
             public float Distance;
             public float RemainingDistance;
+            public int WaitingPassengers;
         }
 
         public TransportType Type;
         public Entity NameEntity;
         public string Color;
         public Path[] Paths;
-        public int WaitingPassengers;
 
         public static NavigationEntry[] FromNative(
             in NativeList<NativeNavigationEntry> nativeNavigationEntries, in NativeList<NativeNavigationEntryPath> nativeNavigationEntryPaths)
@@ -60,7 +60,6 @@ namespace NavigationView
                     NameEntity = nativeEntry.NameEntity,
                     Color = ColorUtility.ToHtmlStringRGBA(nativeEntry.Color),
                     Paths = new Path[nativeEntry.PathEndIndex - nativeEntry.PathBeginIndex],
-                    WaitingPassengers = nativeEntry.WaitingPassengers,
                 };
                 // for each unique name entity, find their first and last index, and merge all paths in between, sum their distances and remaining distances
                 var primaryPathLastIndices = new Dictionary<Entity, int>();
@@ -104,6 +103,7 @@ namespace NavigationView
                             IsPrimary = path.IsPrimary,
                             Distance = distance,
                             RemainingDistance = remainingDistance,
+                            WaitingPassengers = path.WaitingPassengers,
                         });
                         j = lastPrimaryIndex;
                     }
@@ -116,6 +116,7 @@ namespace NavigationView
                             IsPrimary = path.IsPrimary,
                             Distance = path.Distance,
                             RemainingDistance = path.RemainingDistance,
+                            WaitingPassengers = path.WaitingPassengers,
                         });
                     }
                 }
@@ -190,12 +191,12 @@ namespace NavigationView
                     writer.PropertyName("remainingDistance");
                     writer.Write(path.RemainingDistance);
 
+                    writer.PropertyName("waitingPassengers");
+                    writer.Write(path.WaitingPassengers);
+
                     writer.TypeEnd();
                 }
                 writer.ArrayEnd();
-
-                writer.PropertyName("waitingPassengers");
-                writer.Write(entry.WaitingPassengers);
 
                 writer.TypeEnd();
             }

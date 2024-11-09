@@ -55,10 +55,15 @@ namespace NavigationView
             navigationEntries = new ValueBinding<NavigationEntry[]>(nameof(NavigationView), "navigationEntries", null, new NavigationViewEntriesWriter { nameSystem = nameSystem, imageSystem = imageSystem });
             AddBinding(navigationEntries);
 
-            navigationViewEnabled = new ValueBinding<bool>(nameof(NavigationView), "enabled", false);
+            navigationViewEnabled = new ValueBinding<bool>(nameof(NavigationView), "enabled", Mod.Instance.Setting.Enabled);
             AddBinding(navigationViewEnabled);
 
-            navigationViewToggle = new TriggerBinding<bool>(nameof(NavigationView), "toggle", to => navigationViewEnabled.Update(to));
+            navigationViewToggle = new TriggerBinding<bool>(nameof(NavigationView), "toggle", to =>
+            {
+                navigationViewEnabled.Update(to);
+                Mod.Instance.Setting.Enabled = to;
+                Mod.Instance.Setting.ApplyAndSave();
+            });
             AddBinding(navigationViewToggle);
 
             Mod.log.Info("binding added");

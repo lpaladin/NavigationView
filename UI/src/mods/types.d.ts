@@ -7,6 +7,7 @@ interface NavigationEntryPath {
     isPrimary: boolean;
     distance: number;
     remainingDistance: number;
+    waitingPassengers: number;
 }
 
 interface NavigationEntry {
@@ -16,5 +17,4 @@ interface NavigationEntry {
     icon: string;
     color: string;
     paths: NavigationEntryPath[];
-    waitingPassengers: number;
 }

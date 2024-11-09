@@ -18,9 +18,13 @@ namespace NavigationView
         [SettingsUISlider(min = 0, max = 180, step = 1, scalarMultiplier = 1, unit = Unit.kScreenFrequency)]
         public int RefreshFrequency { get; set; } = 2;
 
+        [SettingsUIHidden]
+        public bool Enabled { get; set; } = true;
+
         public override void SetDefaults()
         {
             RefreshFrequency = 2;
+            Enabled = true;
         }
     }
 }

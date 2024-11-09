@@ -19,6 +19,7 @@ Features:
 * List roads, paths, public transport routes and stops for your selected citizen
 * Grouped by means of transport
 * Configure the refresh frequency
+* Move the window around
 
 TODO:
 * Better grouping of road segments while driving
@@ -34,17 +35,16 @@ TODO:
   <!--Link to the forum post where the mod can be discussed-->
   <ForumLink Value="https://forum.paradoxplaza.com/forum/threads/navigationview.1713216/" />
   <!--Version of the mod-->
-  <ModVersion Value="1.0.4" />
+  <ModVersion Value="1.0.5" />
   <!--Recommended version of the base game to use the mod-->
   <GameVersion Value="1.1.*" />
   <!--Dependency for the mod, can be set multiple times-->
   <Dependency Id="" />
   <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
   <ChangeLog>
-## 1.0.4
-* Add fr-FR translation (Thank you @Edou24!)
-* Shows navigations for group (e.g. family) leader when selecting group member
-* Fixed missing title &amp; icon when passenger transfers at outside connections
+## 1.0.5
+* Fixed and enhanced passengers waiting display
+* Now the window status will be persisted across game sessions
   </ChangeLog>
   <!--External link. supported types are discord, github, youtube, twitch, x, paypal, patreon, buymeacoffee, kofi, crowdin, gitlab-->
   <ExternalLink Type="github" Url="https://github.com/lpaladin/NavigationView" />

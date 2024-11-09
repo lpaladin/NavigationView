@@ -334,33 +334,32 @@ namespace NavigationView
                     var routeWaypoint = routeWaypoints[start.m_Index];
                     if (connectedLookup.TryGetComponent(routeWaypoint.m_Waypoint, out var connected))
                     {
+                        var path = new NativeNavigationEntryPath();
+                        if (waitingPassengersLookup.TryGetComponent(routeWaypoint.m_Waypoint, out var waitingPassengers))
+                        {
+                            path.WaitingPassengers = waitingPassengers.m_Count;
+                        }
                         // dummy path indicating starting waypoint
                         if (ownerLookup.TryGetComponent(connected.m_Connected, out var ownerStation))
                         {
-                            resultEntryPaths.Add(new NativeNavigationEntryPath
-                            {
-                                SubNameEntity = connected.m_Connected,
-                                NameEntity = GetAncestor(ownerStation.m_Owner)
-                            });
+                            path.SubNameEntity = connected.m_Connected;
+                            path.NameEntity = GetAncestor(ownerStation.m_Owner);
                         }
                         else
                         {
-                            resultEntryPaths.Add(new NativeNavigationEntryPath
-                            {
-                                SubNameEntity = connected.m_Connected,
-                                NameEntity = GetAncestor(connected.m_Connected)
-                            });
+                            path.SubNameEntity = connected.m_Connected;
+                            path.NameEntity = GetAncestor(connected.m_Connected);
                         }
+                        resultEntryPaths.Add(path);
                     }
                 }
                 for (int i = start.m_Index; i != end.m_Index; i = (i + 1) % routeSegments.Length)
                 {
                     var routeWaypoint = routeWaypoints[(i + 1) % routeWaypoints.Length];
                     var path = new NativeNavigationEntryPath();
-                    if (i == start.m_Index &&
-                        waitingPassengersLookup.TryGetComponent(routeWaypoint.m_Waypoint, out var waitingPassengers))
+                    if (waitingPassengersLookup.TryGetComponent(routeWaypoint.m_Waypoint, out var waitingPassengers))
                     {
-                        currentEntry.WaitingPassengers = waitingPassengers.m_Count;
+                        path.WaitingPassengers = waitingPassengers.m_Count;
                     }
                     if (connectedLookup.TryGetComponent(routeWaypoint.m_Waypoint, out var connected))
                     {
@@ -374,6 +373,11 @@ namespace NavigationView
                             path.SubNameEntity = connected.m_Connected;
                             path.NameEntity = GetAncestor(connected.m_Connected);
                         }
+                    }
+                    else
+                    {
+                        path.SubNameEntity = routeWaypoint.m_Waypoint;
+                        path.NameEntity = GetAncestor(routeWaypoint.m_Waypoint);
                     }
                     var routeSegment = routeSegments[i];
                     var distance = 0f;

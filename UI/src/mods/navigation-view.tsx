@@ -30,6 +30,8 @@ const Selectable = ({ value: { nameEntity, name } }: { value: { nameEntity: Enti
 }
 
 const PathDetails = ({ path }: { path: NavigationEntryPath }) => {
+    const { translate } = useLocalization();
+
     let distanceElement: ReactNode = null;
     if (path.remainingDistance > 1e-6) {
         distanceElement = <div className={ styles.pathDistance }>
@@ -40,12 +42,18 @@ const PathDetails = ({ path }: { path: NavigationEntryPath }) => {
         <div className={ styles.pathName }><Selectable value={ path } /></div>
         { isValidName(path.subName) && <div className={ styles.pathSubName }><LocalizedEntityName value={ path.subName } /></div> }
         { distanceElement }
+        {
+            path.waitingPassengers > 0 && <Tooltip tooltip={ translate(`${mod.id}.UI.WaitingPassengers`) }>
+                <div className={ styles.waitingPassengers }>
+                    <Icon className={ styles.waitingPassengersIcon } src="Media/Game/Icons/Citizen.svg" />
+                    <div>{ path.waitingPassengers }</div>
+                </div>
+            </Tooltip>
+        }
     </div>;
 };
 
 const NavigationViewEntry = ({ entry }: { entry: NavigationEntry }) => {
-    const { translate } = useLocalization();
-
     const pathIndices = [];
     let routeNameAddon: ReactNode = null;
     if (entry.paths[0].remainingDistance < 1e-6) {
@@ -54,17 +62,7 @@ const NavigationViewEntry = ({ entry }: { entry: NavigationEntry }) => {
                 pathIndices.push(i);
             }
         }
-        routeNameAddon = <>
-            <PathDetails path={ entry.paths[0] } />
-            {
-                entry.waitingPassengers > 0 && <Tooltip tooltip={ translate(`${mod.id}.UI.WaitingPassengers`) }>
-                    <div className={ styles.waitingPassengers }>
-                        <Icon className={ styles.waitingPassengersIcon } src="Media/Game/Icons/Citizen.svg" />
-                        <div>{ entry.waitingPassengers }</div>
-                    </div>
-                </Tooltip>
-            }
-        </>;
+        routeNameAddon = <PathDetails path={ entry.paths[0] } />;
     } else {
         for (let i = 0; i < entry.paths.length; i++) {
             pathIndices.push(i);
