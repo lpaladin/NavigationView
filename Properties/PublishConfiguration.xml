@@ -9,11 +9,11 @@
   <!--LongDescription Value="Select a citizen to list routes, stops, means of transport and distance in a side view" /-->
   <LongDescription>
 ## Navigation View
-Click the top-left button to enable.
+Click the top-left button to enable. / 点击左上角按钮以启用。
 
-Select a citizen / car to list routes, stops, means of transport and distance in a side view, resembling the navigation apps in their phone.
+Select a citizen / car to list routes, stops, means of transport and distance in a side view, resembling the navigation apps in their phone. / 选择一个市民或者车辆，像手机导航一样在旁边列出路线、站点、交通方式和距离。
 
-Recommended to use with the [Cim Route Highlighter](https://mods.paradoxplaza.com/mods/76662/Windows) mod by mattswarthout.
+Recommended to use with the [Cim Route Highlighter](https://mods.paradoxplaza.com/mods/76662/Windows) mod by mattswarthout. / 建议与 Cim Route Highlighter mod 一起使用。
 
 Features:
 * List roads, paths, public transport routes and stops for your selected citizen
@@ -22,7 +22,6 @@ Features:
 * Move the window around
 
 TODO:
-* Better grouping of road segments while driving
 * Redundant info for some stops
   </LongDescription>
   <!--Thumbnail-->
@@ -35,16 +34,15 @@ TODO:
   <!--Link to the forum post where the mod can be discussed-->
   <ForumLink Value="https://forum.paradoxplaza.com/forum/threads/navigationview.1713216/" />
   <!--Version of the mod-->
-  <ModVersion Value="1.0.5" />
+  <ModVersion Value="1.0.6" />
   <!--Recommended version of the base game to use the mod-->
   <GameVersion Value="1.1.*" />
   <!--Dependency for the mod, can be set multiple times-->
   <Dependency Id="" />
   <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
   <ChangeLog>
-## 1.0.5
-* Fixed and enhanced passengers waiting display
-* Now the window status will be persisted across game sessions
+## 1.0.6
+* Better grouping of road segments
   </ChangeLog>
   <!--External link. supported types are discord, github, youtube, twitch, x, paypal, patreon, buymeacoffee, kofi, crowdin, gitlab-->
   <ExternalLink Type="github" Url="https://github.com/lpaladin/NavigationView" />

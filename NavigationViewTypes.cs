@@ -119,6 +119,26 @@ namespace NavigationView
                             WaitingPassengers = path.WaitingPassengers,
                         });
                     }
+                    // Try coalesce the previous 2 paths if one of them is not primary
+                    if (paths.Count > 1)
+                    {
+                        var prev = paths[paths.Count - 2];
+                        var curr = paths[paths.Count - 1];
+                        if (!prev.IsPrimary && curr.IsPrimary)
+                        {
+                            // merge prev into curr
+                            curr.Distance += prev.Distance;
+                            curr.RemainingDistance += prev.RemainingDistance;
+                            paths.RemoveAt(paths.Count - 2);
+                        }
+                        else if (prev.IsPrimary && !curr.IsPrimary)
+                        {
+                            // merge curr into prev
+                            prev.Distance += curr.Distance;
+                            prev.RemainingDistance += curr.RemainingDistance;
+                            paths.RemoveAt(paths.Count - 1);
+                        }
+                    }
                 }
                 entry.Paths = paths.ToArray();
                 entries[i] = entry;
