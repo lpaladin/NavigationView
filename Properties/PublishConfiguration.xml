@@ -2,13 +2,13 @@
   <!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
   <ModId Value="93523" />
   <!--Name of the mod to display to players-->
-  <DisplayName Value="NavigationView" />
+  <DisplayName Value="NavigationView (Updated for 1.3.3f1)" />
   <!--Short description of the mod-->
   <ShortDescription Value="Check how your citizen navigates in your city" />
   <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
   <!--LongDescription Value="Select a citizen to list routes, stops, means of transport and distance in a side view" /-->
   <LongDescription>
-## Navigation View
+## Navigation View (Updated for 1.3.3f1)
 Click the top-left button to enable. / 点击左上角按钮以启用。
 
 Select a citizen / car to list routes, stops, means of transport and distance in a side view, resembling the navigation apps in their phone. / 选择一个市民或者车辆，像手机导航一样在旁边列出路线、站点、交通方式和距离。
@@ -34,15 +34,15 @@ TODO:
   <!--Link to the forum post where the mod can be discussed-->
   <ForumLink Value="https://forum.paradoxplaza.com/forum/threads/navigationview.1713216/" />
   <!--Version of the mod-->
-  <ModVersion Value="1.0.6" />
+  <ModVersion Value="1.0.7a" />
   <!--Recommended version of the base game to use the mod-->
-  <GameVersion Value="1.1.*" />
+  <GameVersion Value="1.3.*" />
   <!--Dependency for the mod, can be set multiple times-->
   <Dependency Id="" />
   <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
   <ChangeLog>
-## 1.0.6
-* Better grouping of road segments
+## 1.0.7a
+* Support latest 1.3.3f1
   </ChangeLog>
   <!--External link. supported types are discord, github, youtube, twitch, x, paypal, patreon, buymeacoffee, kofi, crowdin, gitlab-->
   <ExternalLink Type="github" Url="https://github.com/lpaladin/NavigationView" />
